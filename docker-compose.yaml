@@ -1,0 +1,30 @@
+version: "3.8"
+
+services: 
+
+  app:
+    build: .
+    image: myapp:1.0
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+      
+  simple-db:
+    image: mysql:8.0.33
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_DATABASE: simple
+    ports:
+      - "3307:3306"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -pP@ssw0rd || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
