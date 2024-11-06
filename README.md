@@ -7,13 +7,13 @@ https://www.python.org/downloads/release/python-31011/
 ## RUN
 
 ### up
-`
+```
     docker-compose up --build
-`
+```
 
 ### down
-`
+```
     docker-compose down 
-`
+```
 
 
