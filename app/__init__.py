@@ -2,8 +2,6 @@ from flask import Flask
 
 from .routes import main
 
-from .testroute import userController
-
 from app.controller.UserController import user
 
 def create_app():
@@ -12,8 +10,6 @@ def create_app():
 
 
     app.register_blueprint(main)
-
-    app.register_blueprint(userController)
 
     app.register_blueprint(user, url_prefix='/api')
 
