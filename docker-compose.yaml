@@ -7,13 +7,15 @@ services:
     image: myapp:1.0
     ports:
       - "5000:5000"
+    depends_on:
+      - db
     networks:
       - app-network
       
-  simple-db:
+  db:
     image: mysql:8.0.33
     environment:
-      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: simple
     ports:
       - "3307:3306"
