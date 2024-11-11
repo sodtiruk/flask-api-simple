@@ -8,7 +8,6 @@ def create_app():
     #create app    
     app = Flask(__name__)
 
-
     app.register_blueprint(main)
 
     app.register_blueprint(user, url_prefix='/api')
